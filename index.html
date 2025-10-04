@@ -1,425 +1,924 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Makganananisa Fannie Monaga | Portfolio Website</title>
-    <!-- Linking CSS File -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Fontawesome link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- Bootstrap link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
-<script>
-  (function () {
-    emailjs.init("L-CdBwscS4yN0oxz5"); // Replace with your EmailJS Public Key
-  })();
-
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const formData = new FormData(form);
-    const formResponse = document.getElementById("formResponse");
-
-    emailjs
-      .send("service_j2j9co9", "template_wgiauyf", {
-        user_name: formData.get("user_name"),
-        user_email: formData.get("user_email"),
-        user_phone: formData.get("user_phone"),
-        message: formData.get("message"),
-      })
-      .then(
-        () => {
-          formResponse.textContent = "Message sent successfully!";
-          form.reset();
-        },
-        (error) => {
-          formResponse.textContent = "Failed to send message. Please try again.";
-          console.error("EmailJS error:", error);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makgananisa Fannie Monaga | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-      );
-  });
-</script>
 
-  </head>
-  <body>
-    <!-- Header & Navbar -->
-    <header class="bg-dark fixed-top">
-      <nav class="container-xxl navbar navbar-expand-lg py-3 bg-dark navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand fw-bold fs-3" href="#">Makganananisa Fannie Monaga</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#skills">SKILLS</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#portfolio">PORTFOLIO</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#about">ABOUT</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#cv">CURRICULUM VITAE</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#contact">CONTACT</a>
-              </li>
-          </div>
-        </div>
-      </nav>
-    </header>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Hero or Showcase Section -->
-    <section class="hero d-flex flex-column align-items-center justify-content-center">
-      <div class="text-center">
-        <h1 class="h1 text-white fw-medium fst-italic">Makgananisa Fannie Monaga</h1>
-        <h2 class="display-3 text-white fw-bold">Computer Science <br /> student</h2>
-        <a href="#skills" class="btn btn-lg fs-6 fw-medium mt-5 btn-primary p-3">TELL ME MORE</a>
-      </div>
-    </section>
-    
-    <!-- Skills Section -->
-    <section class="container py-5" id="skills">
-      <div class="row mt-4 py-3">
-        <div class="col-12 d-flex flex-column text-center justify-content-center">
-          <h2>SKILLS</h2>
-          <h5 class="text-secondary fw-normal py-2 fst-italic">Continuously improving my skills and knowledge in the field.</h5>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-between mx-0">
-        <div class="card mt-5 d-flex flex-column align-items-center text-center bg-white p-4" style="width: 25rem">
-          <i class="text-white bg-primary d-flex align-items-center justify-content-center fs-2 rounded-circle fa-solid fa-cart-shopping"></i>
-          <h3 class="mt-4 h4">Front-end Development</h3>
-          <p class="text-center">Proficient in HTML, CSS, and JavaScript. Experienced in responsive web design and building user-friendly interfaces.</p>
-        </div>
-        <div class="card mt-5 d-flex flex-column align-items-center text-center bg-white p-4" style="width: 25rem">
-          <i class="text-white bg-primary d-flex align-items-center justify-content-center fs-2 rounded-circle fa-solid fa-laptop"></i>
-          <h3 class="mt-4 h4">Back-end Development</h3>
-          <p class="text-center">Skilled in server-side programming using technologies like Node.js and Express. Experience working with databases such as MySQL.</p>
-        </div>
-        <div class="card mt-5 d-flex flex-column align-items-center text-center bg-white p-4" style="width: 25rem">
-          <i class="text-white bg-primary d-flex align-items-center justify-content-center fs-2 rounded-circle fa-solid fa-mobile-screen-button"></i>
-          <h3 class="mt-4 h4">Mobile App Development</h3>
-          <p class="text-center">Proficient in developing mobile apps for iOS and Android using frameworks like React Native. Experienced in building engaging and intuitive mobile user interfaces.</p>
-        </div>
-      </div>
-    </section>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
 
-    <!-- Portfolio Section -->
-    <section class="container py-5" id="portfolio">
-      <div class="row mt-4 py-3">
-        <div class="col-12 d-flex flex-column text-center justify-content-center">
-          <h2>PORTFOLIO</h2>
-          <h5 class="text-secondary fw-normal py-2 fst-italic">A collection of projects I've worked on.</h5>
-        </div>
-        <div class="row mt-5 mx-0 justify-content-center align-items-center">
-          <div class="col-lg-3 col-md-4 col-12 card-wrapper">
-            <div class="card mt-4">
-              <a href="https://lingomanipulator.42web.io/"><img src="translator.png" class="img-fluid" alt="portfolio-img"></a>
-              <div class="card-body text-center">
-                <h6 class="card-title">Language Translator Website</h6>
-                <p class="card-text text-secondary">HTML/CSS/JavaScript</p>
-              </div>
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.2rem !important;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1rem !important;
+            }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--dark) !important;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.25rem;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary) !important;
+        }
+
+        .nav-link::after {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            z-index: 2;
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        .hero-profile-img {
+            max-width: 400px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border: 8px solid rgba(255,255,255,0.2);
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero .btn {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* Skills Cards */
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        /* Portfolio Cards */
+        .portfolio-card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-card img {
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(99, 102, 241, 0.9);
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 39px;
+            top: 40px;
+            bottom: -3rem;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 29px;
+            top: 30px;
+            width: 22px;
+            height: 22px;
+            background: var(--gradient);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+        }
+
+        /* CV Section */
+        .cv-profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: white;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Contact Form */
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .form-control {
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-control.is-valid {
+            border-color: #4ade80;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%234ade80' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.5rem) center;
+            background-size: calc(0.75em + 1rem) calc(0.75em + 1rem);
+            padding-right: calc(1.5em + 1.5rem);
+        }
+
+        .form-control.is-invalid {
+            border-color: #f87171;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23f87171'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23f87171' stroke='none'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.5rem) center;
+            background-size: calc(0.75em + 1rem) calc(0.75em + 1rem);
+            padding-right: calc(1.5em + 1.5rem);
+        }
+
+        .invalid-feedback {
+            display: block;
+            color: #f87171;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-submit {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-success {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            background: #1fb855;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .navbar-brand {
+                font-size: 1rem !important;
+            }
+            .hero-profile-img {
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Makgananisa Fannie Monaga</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-4 card-wrapper">
-            <div class="card mt-4">
-              <img src="landing-page.png" class="img-fluid" alt="portfolio-img">
-              <div class="card-body text-center">
-                <h6 class="card-title">Responsive Landing Page</h6>
-                <p class="card-text text-secondary">HTML/CSS/Bootstrap</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 card-wrapper">
-            <div class="card mt-4">
-              <img src="library.png" class="img-fluid" alt="portfolio-img">
-              <div class="card-body text-center">
-                <h6 class="card-title">Education</h6>
-                <p class="card-text text-secondary">HTML/CSS/JavaScript</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 card-wrapper">
-            <div class="card mt-4">
-              <img src="blog.jpg" class="img-fluid" alt="portfolio-img">
-              <div class="card-body text-center">
-                <h6 class="card-title">Blog Website</h6>
-                <p class="card-text text-secondary">HTML/CSS/PHP</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>      
-    </section>
+    </nav>
 
-    <!-- About Section -->
-    <section class="container py-5" id="about">
-      <div class="row mt-4 py-3">
-        <div class="col-12 d-flex flex-column text-center">
-          <h2>ABOUT</h2>
-          <h5 class="text-secondary fw-normal py-2 fst-italic">Learn more about me, my background, and what motivates me.</h5>
-        </div>
-      </div>
-      <div class="row flex-row-reverse flex-md-row mt-5 pt-5">
-        <div class="col-9 col-md-5 text-md-end">
-          <h5>2016-2020</h5>
-          <h5>Early Passion for Technology</h5>
-          <p>From an early age, I became fascinated with computers and programming. Starting with basic HTML and CSS, I gradually expanded my skills to include JavaScript and various frameworks.</p>
-        </div>
-        <div class="col-3 col-md-2 img text-center">
-          <img class="rounded-circle border border-5 border-dark-subtle img-fluid" src="about-img-1.jpg" alt="img">
-        </div>
-      </div>
-      <div class="row justify-content-md-end mt-5 pt-5">
-        <div class="col-3 col-md-2 img text-center">
-          <img class="rounded-circle border border-5 border-dark-subtle img-fluid" src="about-img-2.jpg" alt="img">
-        </div>
-        <div class="col-9 col-md-5">
-          <h5>2021-2024</h5>
-          <h5>Higher Education and Career Growth</h5>
-          <p>During my university years, I studied computer science and gained hands-on experience through internships and freelance projects. This period fueled my passion for creating innovative solutions and solving complex problems.</p>
-        </div>
-      </div>
-      <div class="row flex-row-reverse flex-md-row mt-5 pt-5">
-        <div class="col-9 col-md-5 text-md-end">
-          <h5>2024-Present</h5>
-          <h5>Professional Excellence and Continuous Learning</h5>
-          <p>Throughout my career, I have consistently sought opportunities to refine my skills and stay updated with the latest technologies. I strive for excellence in every project I undertake and aim to deliver valuable and impactful results.</p>
-        </div>
-        <div class="col-3 col-md-2 img text-center">
-          <img class="rounded-circle border border-5 border-dark-subtle img-fluid" src="about-img-3.jpg" alt="img">
-        </div>
-      </div>
-      <div class="row justify-content-md-end mt-5 pt-5">
-        <div class="col-3 col-md-2 img text-center">
-          <img class="rounded-circle border border-5 border-dark-subtle img-fluid" src="about-img-4.jpg" alt="img">
-        </div>
-        <div class="col-9 col-md-5">
-          <h5>Future</h5>
-          <h5>Continuing to Make a Difference</h5>
-          <p>I am committed to leveraging my skills and expertise to contribute to meaningful projects that have a positive impact on society. I am eager to take on new challenges and collaborate with talented individuals to create innovative solutions.</p>
-        </div>
-      </div>
-      <div class="row justify-content-md-center mt-5 pt-5">
-        <div class="col-3 col-md-2 d-flex justify-content-center hire-text">
-          <h2 class="h4 d-flex justify-content-center align-items-center bg-primary text-white rounded-circle border border-5 border-dark-subtle">Present<br><br></h2>
-        </div>
-      </div>      
-    </section>
-
-    <!-- Curriculum Vitae Section -->
-    <section class="container py-5" id="cv">
-      <div class="row mt-4 py-3">
-        <div class="col-12 d-flex flex-column text-center">
-          <h2>CURRICULUM VITAE</h2>
-          <!--<h5 class="text-secondary fw-normal py-2 fst-italic">A small sampling of some of the projects I've worked on as a student of the ICS program.</h5>-->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 mt-5 order-lg-0 order-1 text-center">
-          <img class="img-fluid rounded-circle border border-5 border-dark-subtle" src="profile-img.jpeg" alt="profile-img">
-          <h2 class="mt-3">Makgananisa Fannie Monaga</h2>
-          <ul class="list-unstyled contact-info">
-            <li><i class="fas fa-envelope me-2"></i> fanniemonaga851@gmail.com</li>
-            <li><i class="fas fa-phone me-2"></i> 063 767 2359</li>
-            <li><i class="fas fa-map-marker-alt me-2"></i> 553 Sedibeng Street<br>Botlokwa<br>Ga-Ramatjowe</li>
-          </ul>
-          <ul class="social-icons my-5 d-flex justify-content-center">
-            <a 
-    href="https://twitter.com/fanniemonaga851" 
-    class="bg-primary mx-2 text-white d-flex align-items-center justify-content-center text-decoration-none rounded-circle" 
-    target="_blank" 
-    rel="noopener noreferrer">
-    <i class="fa-brands fa-twitter"></i>
-</a>
-
-            <!-- Facebook Profile -->
-  <a 
-    href="https://facebook.com/Fannie.Makgananisa" 
-    class="bg-primary mx-2 text-white d-flex align-items-center justify-content-center text-decoration-none rounded-circle" 
-    target="_blank" 
-    rel="noopener noreferrer">
-    <i class="fa-brands fa-facebook-f"></i>
-</a>
-
-            <a 
-    href="https://linkedin.com/in/fannie-monaga-makgananisa-a9a430290" 
-    class="bg-primary mx-2 text-white d-flex align-items-center justify-content-center text-decoration-none rounded-circle" 
-    target="_blank" 
-    rel="noopener noreferrer">
-    <i class="fa-brands fa-linkedin-in"></i>
-</a>
-          </ul>
-          <h5>Technical Skills</h5>
-          <ul class="list-unstyled">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-			<li>Java</li>
-			<li>PHP</li>
-            <!-- Add or remove skills as needed -->
-          </ul>
-          <h5>Personal Interests</h5>
-          <ul class="list-unstyled">
-            <li>Web Development</li>
-            <li>Mobile App Development</li>
-            <li>Cybersecurity</li>
-            <!-- Add or remove interests as needed -->
-          </ul>
-        </div>
-        <div class="col-lg-7 order-lg-1 order-0 mt-5 text-start">
-          <h3>Profile</h3>
-          <hr>
-          <p>I am a dedicated and detail-oriented software developer with a passion for solving complex problems and building efficient, user-friendly solutions. My background includes hands-on experience in designing, developing, and maintaining software applications, with a strong focus on quality, performance, and scalability. I thrive in collaborative environments and enjoy working on projects that challenge me to think critically and continuously improve my skills.</p>
-          <h3>Highlights of Qualifications</h3>
-          <hr>
-          <ul>
-            <li>Diploma in Computer Science</li>
-            <!-- Add or remove qualifications as needed -->
-          </ul>
-          <h3>Education</h3>
-          <hr>
-          <dl>
-            <dt>2021 - 2024</dt>
-            <dd>Tshwane University of Technology</dd>
-            <dd>Diploma in Computer Science</dd>
-          </dl>
-          <!--<h3>Additional Courses & Training</h3>
-          <hr>
-          <dl>
-            <dt>Year</dt>
-            <dd>Course/Training</dd>
-            <dd>Institution/Organization</dd>
-          </dl>-->
-          <h3>Work Experience</h3>
-          <hr>
-          <dl>
-            <dt>2024 - 2025</dt>
-            <dd>Software Developer</dd>
-            <dd>InvesthoodIT</dd>
-            <!-- Add or remove work experience entries as needed -->
-          </dl>
-		  <!--<iframe src="Makgananisa Fannie CV.pdf" width="100%" height="600px"></iframe>-->
-		  <a href="Makgananisa Fannie CV.pdf" download="Makgananisa Fannie CV.pdf">Click here to download my CV</a>
-          <!--<h3>Extracurricular Activities</h3>
-          <hr>
-          <dl>
-            <dt>Organization Name</dt>
-            <dd>Role/Position</dd>
-            <dd>Details of your involvement and contributions</dd>
-          </dl>-->
-        </div>
-      </div>      
-    </section>
-
-     <!-- Contact Section -->
-     <!--<section class="py-5" id="contact">
-      <div class="container-xxl py-5">
-        <div class="col-12 d-flex flex-column text-center justify-content-center">
-          <h2 class="text-white">CONTACT ME</h2>
-          <h5 class="text-white fw-normal py-2 fst-italic">Interested if I'd be the right fit for your team? Fill in this form and I will respond within 24-48 hours.</h5>
-        </div>
-        <div class="row pt-4 mt-5">
-          <div class="col-12">
-            <form action="#" method="POST">
-              <div class="row d-flex justify-content-center">
-                <div class="col-lg-6">
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Enter Name*" required>
-                    <label for="floatingInput">Enter Name*</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="Enter Email*" required>
-                    <label for="floatingEmail">Enter Email*</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingPassword" placeholder="Enter Phone*" required>
-                    <label for="floatingPassword">Enter Phone*</label>
-                  </div>
+    <!-- Hero -->
+    <section class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content text-white mb-5 mb-lg-0">
+                    <h1 class="mb-3">Makgananisa Fannie Monaga</h1>
+                    <h2 class="mb-4">Computer Science<br>Graduate</h2>
+                    <a href="#skills" class="btn">Explore My Work</a>
                 </div>
-                <div class="form-floating col-lg-6">
-                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingMessage" style="height: 205px" required></textarea>
-                  <label for="floatingMessage" class="px-4">Enter Message*</label>
+                <div class="col-lg-6 text-center">
+                    <div class="hero-image-wrapper">
+                        <img src="profile-img.jpeg" class="img-fluid hero-profile-img" alt="Makgananisa Fannie Monaga">
+                    </div>
                 </div>
-                <div class="col-12 mt-5 d-flex justify-content-center">
-                  <button class="btn btn-lg btn-outline-light">SEND MESSAGE</button>
-                </div>
-              </div>
-  
-            </form>
-          </div>
+            </div>
         </div>
-       </div>
-     </section>-->
-	 <section class="py-5" id="contact">
-  <div class="container-xxl py-5">
-    <div class="col-12 d-flex flex-column text-center justify-content-center">
-      <h2 class="text-white">CONTACT ME</h2>
-      <h5 class="text-white fw-normal py-2 fst-italic">
-        Interested if I'd be the right fit for your team? Fill in this form and I will respond within 24-48 hours.
-      </h5>
-    </div>
-    <div class="row pt-4 mt-5">
-      <div class="col-12">
-        <form id="contactForm">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-6">
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="user_name" id="floatingInput" placeholder="Enter Name*" required>
-                <label for="floatingInput">Enter Name*</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" name="user_email" id="floatingEmail" placeholder="Enter Email*" required>
-                <label for="floatingEmail">Enter Email*</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" name="user_phone" id="floatingPhone" placeholder="Enter Phone*" required>
-                <label for="floatingPhone">Enter Phone*</label>
-              </div>
-            </div>
-            <div class="form-floating col-lg-6">
-              <textarea class="form-control" name="message" placeholder="Leave a comment here" id="floatingMessage" style="height: 205px" required></textarea>
-              <label for="floatingMessage" class="px-4">Enter Message*</label>
-            </div>
-            <div class="col-12 mt-5 d-flex justify-content-center">
-              <button type="submit" class="btn btn-lg btn-outline-light">SEND MESSAGE</button>
-            </div>
-          </div>
-        </form>
-        <p id="formResponse" class="text-white text-center mt-3"></p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <!-- Skills -->
+    <section id="skills" class="bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Skills</h2>
+                <p class="text-muted mt-4 fs-5">Continuously improving my skills and knowledge in the field</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="skill-card text-center">
+                        <div class="skill-icon mx-auto">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Front-end Development</h3>
+                        <p class="text-muted">Proficient in HTML, CSS, and JavaScript. Experienced in responsive web design and building user-friendly interfaces.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="skill-card text-center">
+                        <div class="skill-icon mx-auto">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Back-end Development</h3>
+                        <p class="text-muted">Skilled in server-side programming using technologies like Node.js and Express. Experience working with databases such as MySQL.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="skill-card text-center">
+                        <div class="skill-icon mx-auto">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Mobile App Development</h3>
+                        <p class="text-muted">Proficient in developing mobile apps for iOS and Android using frameworks like React Native. Experienced in building engaging and intuitive mobile user interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Portfolio -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Portfolio</h2>
+                <p class="text-muted mt-4 fs-5">A collection of projects I've worked on</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="translator.png" class="img-fluid" alt="Language Translator">
+                        <div class="portfolio-overlay">
+                            <a href="https://lingomanipulator.42web.io/" class="text-white text-decoration-none">
+                                <i class="fas fa-external-link-alt fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="card-body text-center bg-white">
+                            <h6 class="fw-bold">Language Translator</h6>
+                            <p class="text-muted small">HTML/CSS/JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="landing-page.png" class="img-fluid" alt="Landing Page">
+                        <div class="card-body text-center bg-white">
+                            <h6 class="fw-bold">Responsive Landing Page</h6>
+                            <p class="text-muted small">HTML/CSS/Bootstrap</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="library.png" class="img-fluid" alt="Education">
+                        <div class="card-body text-center bg-white">
+                            <h6 class="fw-bold">Education</h6>
+                            <p class="text-muted small">HTML/CSS/JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="blog.jpg" class="img-fluid" alt="Blog">
+                        <div class="card-body text-center bg-white">
+                            <h6 class="fw-bold">Blog Website</h6>
+                            <p class="text-muted small">HTML/CSS/PHP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-     <!-- Footer -->
-     <footer>
-      <div class="container-xxl flex-wrap pt-3 d-flex align-items-center justify-content-between">
-        <p>Copyright © 2025 Fannie Monaga Makganananisa</p>
-        <ul class="social-icons d-flex">
-          <a href="https://twitter.com/fanniemonaga851" class="bg-primary mx-2 text-white d-flex align-items-center justify-content-center text-decoration-none rounded-circle"><small><i class="fa-brands fa-twitter"></i></small></a>
-          <a 
-    href="https://facebook.com/fannie.makgananisa" 
-    class="bg-primary mx-2 text-white d-flex align-items-center justify-content-center text-decoration-none rounded-circle" 
-    target="_blank" 
-    rel="noopener noreferrer"><small>
-    <i class="fa-brands fa-facebook-f"></small></i>
-</a>
-          <a href="https://linkedin.com/in/fannie-monaga-makgananisa-a9a430290" class="bg-primary mx-2 text-white d-flex align-items-center justify-content-center text-decoration-none rounded-circle"><small><i class="fa-brands fa-linkedin-in"></i></small></a>
-        </ul>
-      </div>
-     </footer>
-    
-     <!-- Bootstrap script link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  </body>
+    <!-- About -->
+    <section id="about" class="bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">About</h2>
+                <p class="text-muted mt-4 fs-5">My journey in technology</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="d-flex align-items-start gap-4">
+                            <img src="about-img-1.jpg" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Early passion">
+                            <div>
+                                <h5 class="fw-bold">2016-2020</h5>
+                                <h6 class="text-primary">Early Passion for Technology</h6>
+                                <p class="text-muted">From an early age, I became fascinated with computers and programming. Starting with basic HTML and CSS, I gradually expanded my skills to include JavaScript and various frameworks.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="d-flex align-items-start gap-4">
+                            <img src="about-img-2.jpg" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Education">
+                            <div>
+                                <h5 class="fw-bold">2021-2024</h5>
+                                <h6 class="text-primary">Higher Education and Career Growth</h6>
+                                <p class="text-muted">During my university years, I studied computer science and gained hands-on experience through internships and freelance projects. This period fueled my passion for creating innovative solutions and solving complex problems.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="d-flex align-items-start gap-4">
+                            <img src="about-img-3.jpg" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Professional">
+                            <div>
+                                <h5 class="fw-bold">2024-Present</h5>
+                                <h6 class="text-primary">Professional Excellence</h6>
+                                <p class="text-muted">Throughout my career, I have consistently sought opportunities to refine my skills and stay updated with the latest technologies. I strive for excellence in every project I undertake.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="d-flex align-items-start gap-4">
+                            <img src="about-img-4.jpg" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Future">
+                            <div>
+                                <h5 class="fw-bold">Future</h5>
+                                <h6 class="text-primary">Continuing to Make a Difference</h6>
+                                <p class="text-muted">I am committed to leveraging my skills and expertise to contribute to meaningful projects that have a positive impact on society.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Curriculum Vitae</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-5">
+                    <div class="text-center">
+                        <img src="profile-img.jpeg" class="cv-profile-img mb-4" alt="Profile">
+                        <h3 class="mb-3">Makgananisa Fannie Monaga</h3>
+                        <div class="mb-3">
+                            <p class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i>fanniemonaga851@gmail.com</p>
+                            <p class="mb-2"><i class="fas fa-phone me-2 text-primary"></i>063 767 2359</p>
+                            <p class="mb-2"><i class="fab fa-whatsapp me-2 text-primary"></i>063 767 2359</p>
+                            <p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i>553 Sedibeng Street, Botlokwa</p>
+                        </div>
+                        <div class="my-4">
+                            <a href="https://wa.me/27637672359" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://twitter.com/fanniemonaga851" class="social-icon" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://facebook.com/Fannie.Makgananisa" class="social-icon" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://linkedin.com/in/fannie-monaga-makgananisa-a9a430290" class="social-icon" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="mt-4">
+                            <h5 class="mb-3">Technical Skills</h5>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="badge bg-primary p-2">HTML</span>
+                                <span class="badge bg-primary p-2">CSS</span>
+                                <span class="badge bg-primary p-2">JavaScript</span>
+                                <span class="badge bg-primary p-2">Java</span>
+                                <span class="badge bg-primary p-2">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <h4 class="mb-3">Profile</h4>
+                    <p class="text-muted mb-4">I am a dedicated and detail-oriented software developer with a passion for solving complex problems and building efficient, user-friendly solutions. My background includes hands-on experience in designing, developing, and maintaining software applications.</p>
+                    
+                    <h4 class="mb-3">Education</h4>
+                    <div class="mb-4">
+                        <h6 class="fw-bold">Diploma in Computer Science</h6>
+                        <p class="text-muted mb-1">Tshwane University of Technology</p>
+                        <p class="text-muted small">2021 - 2024</p>
+                    </div>
+
+                    <h4 class="mb-3">Work Experience</h4>
+                    <div class="mb-4">
+                        <h6 class="fw-bold">Software Developer</h6>
+                        <p class="text-muted mb-1">InvesthoodIT</p>
+                        <p class="text-muted small">2024 - 2025</p>
+                    </div>
+
+                    <a href="Makgananisa Fannie CV.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download me-2"></i>Download Full CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="text-center text-white mb-5">
+                <h2 class="section-title text-white">Contact Me</h2>
+                <p class="mt-4 fs-5">Interested if I'd be the right fit for your team? Let's connect!</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" class="bg-white p-5 rounded-4 shadow">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="user_name" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" name="user_email" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="tel" class="form-control" name="user_phone" placeholder="Your Phone" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-submit me-2">Send Message</button>
+                                <a href="https://wa.me/27637672359" class="btn btn-success" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-whatsapp me-2"></i>WhatsApp Me
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                    <p id="formResponse" class="text-white text-center mt-3"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-3">© 2025 Fannie Monaga Makgananisa. All rights reserved.</p>
+            <div>
+                <a href="https://wa.me/27637672359" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://twitter.com/fanniemonaga851" class="social-icon" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://facebook.com/Fannie.Makgananisa" class="social-icon" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/in/fannie-monaga-makgananisa-a9a430290" class="social-icon" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // EmailJS Initialization with error handling
+        (function () {
+            try {
+                emailjs.init("L-CdBwscS4yN0oxz5");
+                console.log("EmailJS initialized successfully");
+            } catch (error) {
+                console.error("EmailJS initialization failed:", error);
+            }
+        })();
+
+        // Real-time form validation and submission
+        const contactForm = document.getElementById("contactForm");
+        const formResponse = document.getElementById("formResponse");
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        
+        // Input fields
+        const nameInput = contactForm.querySelector('input[name="user_name"]');
+        const emailInput = contactForm.querySelector('input[name="user_email"]');
+        const phoneInput = contactForm.querySelector('input[name="user_phone"]');
+        const messageInput = contactForm.querySelector('textarea[name="message"]');
+
+        // Real-time validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePhone(phone) {
+            const re = /^[0-9]{10,15}$/;
+            return re.test(phone.replace(/\s/g, ''));
+        }
+
+        function showFieldError(input, message) {
+            input.classList.add('is-invalid');
+            input.classList.remove('is-valid');
+            let errorDiv = input.nextElementSibling;
+            if (!errorDiv || !errorDiv.classList.contains('invalid-feedback')) {
+                errorDiv = document.createElement('div');
+                errorDiv.className = 'invalid-feedback';
+                input.parentNode.appendChild(errorDiv);
+            }
+            errorDiv.textContent = message;
+        }
+
+        function showFieldSuccess(input) {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+            const errorDiv = input.nextElementSibling;
+            if (errorDiv && errorDiv.classList.contains('invalid-feedback')) {
+                errorDiv.remove();
+            }
+        }
+
+        // Real-time validation listeners
+        nameInput.addEventListener('input', function() {
+            if (this.value.trim().length < 2) {
+                showFieldError(this, 'Name must be at least 2 characters');
+            } else {
+                showFieldSuccess(this);
+            }
+        });
+
+        emailInput.addEventListener('input', function() {
+            if (!validateEmail(this.value)) {
+                showFieldError(this, 'Please enter a valid email address');
+            } else {
+                showFieldSuccess(this);
+            }
+        });
+
+        phoneInput.addEventListener('input', function() {
+            if (!validatePhone(this.value)) {
+                showFieldError(this, 'Please enter a valid phone number (10-15 digits)');
+            } else {
+                showFieldSuccess(this);
+            }
+        });
+
+        messageInput.addEventListener('input', function() {
+            if (this.value.trim().length < 10) {
+                showFieldError(this, 'Message must be at least 10 characters');
+            } else {
+                showFieldSuccess(this);
+            }
+        });
+
+        // Form submission
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            
+            console.log("Form submitted");
+            
+            // Validate all fields
+            let isValid = true;
+            
+            if (nameInput.value.trim().length < 2) {
+                showFieldError(nameInput, 'Name must be at least 2 characters');
+                isValid = false;
+            }
+            
+            if (!validateEmail(emailInput.value)) {
+                showFieldError(emailInput, 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            if (!validatePhone(phoneInput.value)) {
+                showFieldError(phoneInput, 'Please enter a valid phone number');
+                isValid = false;
+            }
+            
+            if (messageInput.value.trim().length < 10) {
+                showFieldError(messageInput, 'Message must be at least 10 characters');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                formResponse.textContent = "Please fix the errors above";
+                formResponse.style.color = "#ffcccb";
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+            formResponse.textContent = "Sending your message...";
+            formResponse.style.color = "#fff";
+
+            const formData = new FormData(contactForm);
+            
+            const templateParams = {
+                user_name: formData.get("user_name"),
+                user_email: formData.get("user_email"),
+                user_phone: formData.get("user_phone"),
+                message: formData.get("message"),
+            };
+
+            console.log("Sending email with params:", templateParams);
+            console.log("Service ID: service_j2j9co9");
+            console.log("Template ID: template_hl18ota");
+
+            emailjs.send("service_j2j9co9", "template_hl18ota", templateParams)
+                .then(
+                    function(response) {
+                        console.log("SUCCESS!", response.status, response.text);
+                        formResponse.textContent = "✓ Message sent successfully! I'll get back to you soon.";
+                        formResponse.style.color = "#4ade80";
+                        contactForm.reset();
+                        
+                        // Remove validation classes
+                        [nameInput, emailInput, phoneInput, messageInput].forEach(input => {
+                            input.classList.remove('is-valid', 'is-invalid');
+                        });
+                        
+                        // Reset button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Send Message';
+                        
+                        // Clear success message after 5 seconds
+                        setTimeout(() => {
+                            formResponse.textContent = "";
+                        }, 5000);
+                    },
+                    function(error) {
+                        console.error("FAILED...", error);
+                        formResponse.textContent = "✗ Failed to send: " + (error.text || error.message || "Unknown error");
+                        formResponse.style.color = "#ffcccb";
+                        
+                        // Reset button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Send Message';
+                    }
+                );
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
 </html>
